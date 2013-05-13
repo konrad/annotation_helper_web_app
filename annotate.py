@@ -20,14 +20,12 @@ def show(entity_id):
 @app.route("/confirm/<entity_id>")
 def confirm(entity_id):
     _save_annotation(entity_id, "confirmed")
-    return "%s confirmed<br/><a href='%s'>back</a>" % (
-        entity_id, url_for("show", entity_id = entity_id))
+    return redirect(url_for('show', entity_id = entity_id))
 
 @app.route("/reject/<entity_id>")
 def reject(entity_id):
     _save_annotation(entity_id, "reject")
-    return "%s rejected<br/><a href='%s'>back</a>" % (
-        entity_id, url_for("show", entity_id = entity_id))
+    return redirect(url_for('show', entity_id = entity_id))
 
 def _get_features(entity_id):
     entities = _entities()
