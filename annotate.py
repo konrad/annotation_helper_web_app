@@ -1,3 +1,36 @@
+#!/usr/bin/env python
+"""
+
+A little helper for manual annotion confirmation/rejection
+
+Test e.g. with
+
+http://127.0.0.1:5000/show/mytest
+
+Copyright (c) 2013, Konrad Foerstner <konrad@foerstner.org>
+
+Permission to use, copy, modify, and/or distribute this software for
+any purpose with or without fee is hereby granted, provided that the
+above copyright notice and this permission notice appear in all
+copies.
+
+THE SOFTWARE IS PROVIDED 'AS IS' AND THE AUTHOR DISCLAIMS ALL
+WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE
+AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL
+DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR
+PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER
+TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+
+"""
+__description__ = ""
+__author__ = "Konrad Foerstner <konrad@foerstner.org>"
+__copyright__ = "2013 by Konrad Foerstner <konrad@foerstner.org>"
+__license__ = "ISC license"
+__email__ = "konrad@foerstner.org"
+__version__ = ""
+
 from flask import Flask, url_for, render_template, redirect
 import json
 import datetime
@@ -37,7 +70,7 @@ def _get_features(entity_id):
 def _entities():
     try:
         with open(data_file) as fh:
-            return(json.load(fh))
+            return json.load(fh)
     except IOError:
         with open(data_file, "w") as fh:
             fh.write("{}")
