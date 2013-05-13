@@ -46,7 +46,7 @@ def hello():
 def annotate(entity_id):
     features = _get_features(entity_id)
     return render_template(
-        'annotate.html', 
+        "annotate.html", 
         entity_id=entity_id,
         status=features["status"],
         mod_time=features["mod_time"],
@@ -56,12 +56,12 @@ def annotate(entity_id):
 @app.route("/confirm/<entity_id>")
 def confirm(entity_id):
     _save_annotation(entity_id, "confirmed")
-    return redirect(url_for('annotate', entity_id = entity_id))
+    return redirect(url_for("annotate", entity_id = entity_id))
 
 @app.route("/reject/<entity_id>")
 def reject(entity_id):
-    _save_annotation(entity_id, "reject")
-    return redirect(url_for('annotate', entity_id = entity_id))
+    _save_annotation(entity_id, "rejected")
+    return redirect(url_for("annotate", entity_id = entity_id))
 
 @app.route("/listall")
 def list_all():
