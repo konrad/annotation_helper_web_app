@@ -44,7 +44,7 @@ def _entities():
 
 def _save_annotation(entity_id, status):
     entities = _entities()
-    entities[entity_id] = {"status" : status, mod_time}
+    entities[entity_id] = {"status" : status, "mod_time" : ""}
     with open(data_file, "w") as fh:
         json.dump(entities, fh)
 
