@@ -42,11 +42,11 @@ data_file = "list_annotation.json"
 def hello():
     return "Welcome!\n"
 
-@app.route("/show/<entity_id>")
-def show(entity_id):
+@app.route("/annotate/<entity_id>")
+def annotate(entity_id):
     features = _get_features(entity_id)
     return render_template(
-        'show.html', 
+        'annotate.html', 
         entity_id=entity_id,
         status=features["status"],
         mod_time=features["mod_time"],
@@ -56,12 +56,16 @@ def show(entity_id):
 @app.route("/confirm/<entity_id>")
 def confirm(entity_id):
     _save_annotation(entity_id, "confirmed")
-    return redirect(url_for('show', entity_id = entity_id))
+    return redirect(url_for('annotate', entity_id = entity_id))
 
 @app.route("/reject/<entity_id>")
 def reject(entity_id):
     _save_annotation(entity_id, "reject")
-    return redirect(url_for('show', entity_id = entity_id))
+    return redirect(url_for('annotate', entity_id = entity_id))
+
+@app.route("/listall")
+def list_all():
+    return render_template("list_all.html", entities = _entities())
 
 def _get_features(entity_id):
     entities = _entities()
