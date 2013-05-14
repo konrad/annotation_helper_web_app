@@ -1,10 +1,24 @@
-<!doctype html>
-<title>Annotate {{ entity_id }}</title>
-<h2>{{ entity_id }}</h2>
+{% extends "bootstrap_responsive.html" %}
+{% block title %}
+Annotate {{ entity_id }}
+{% endblock %}
 
-<ul>
-  <li><em>Current status: {{ status }}</em></li>
-  <li><em>Modification time: {{ mod_time }}</em></li>
-  <li><a href="{{ confirm_url }}">Confirm this entity</a></li>
-  <li><a href="{{ reject_url }}">Reject this entity</a></li>
+{% block body %}
+{{ super() }}
+
+<ul class="nav nav-tabs">
+  <li><a href="/">Home</a> </li>
+  <li><a href="{{ list_all_url }}">List all</a></li>
+  <li class="active"><a href="#">Annotate {{ entity_id }}</a></li>
 </ul>
+
+<div class="container">
+  <h2>{{ entity_id }}</h2>
+  <ul>
+    <li><em>Current status: {{ status }}</em></li>
+    <li><em>Modification time: {{ mod_time }}</em></li>
+    <li><a href="{{ confirm_url }}">Confirm this entity</a></li>
+    <li><a href="{{ reject_url }}">Reject this entity</a></li>
+  </ul>
+</div>
+{% endblock %}

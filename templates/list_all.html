@@ -1,19 +1,30 @@
-<!doctype html>
-<title>List all</title>
-<h2>All annotated entities</h2>
+{% extends "bootstrap_responsive.html" %}
+{% block title %}
+List all
+{% endblock %}
 
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Status</th>
-    <th>Modification date</th>
-  </tr>
-{% for entity_id, features in entities.items() %}
-  <li></li>
-  <tr>
+{% block body %}
+{{ super() }}
+<ul class="nav nav-tabs">
+  <li><a href="/">Home</a> </li>
+  <li class="active"><a href="#">List all</a></li>
+</ul>
+
+<div class="container">
+  <h2>All annotated entities</h2>
+  <table border="1" cellpadding="8">
+    <tr>
+      <th>ID</th>
+      <th>Status</th>
+      <th>Modification date</th>
+    </tr>
+  {% for entity_id, features in entities.items() %}
+    <tr>
     <td><a href='{{ url_for("annotate" , entity_id = entity_id) }}'>{{ entity_id }}</a></td>
     <td>{{ features["status"] }}</td>
     <td>{{ features["mod_time"] }}</td>
-  </tr>
+    </tr>
+</div>
 {% endfor %}
-</table>
+{% endblock %}
+

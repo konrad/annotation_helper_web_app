@@ -32,6 +32,7 @@ __email__ = "konrad@foerstner.org"
 __version__ = ""
 
 from flask import Flask, url_for, render_template, redirect
+from flask.ext.bootstrap import Bootstrap
 import json
 import datetime
 
@@ -51,7 +52,8 @@ def annotate(entity_id):
         status=features["status"],
         mod_time=features["mod_time"],
         confirm_url=url_for("confirm", entity_id = entity_id),
-        reject_url=url_for("reject", entity_id = entity_id))
+        reject_url=url_for("reject", entity_id = entity_id),
+        list_all_url=url_for("list_all"))
 
 @app.route("/confirm/<entity_id>")
 def confirm(entity_id):
@@ -90,5 +92,7 @@ def _now_str():
     return datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 if __name__ == "__main__":
+    Bootstrap(app)
     app.debug = True
     app.run()
+    
