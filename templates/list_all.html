@@ -17,12 +17,14 @@ List all
       <th>ID</th>
       <th>Status</th>
       <th>Modification date</th>
+      <!--<th>Link to location</th>-->
     </tr>
   {% for entity_id, features in entities.items() %}
     <tr>
     <td><a href='{{ url_for("annotate" , entity_id = entity_id) }}'>{{ entity_id }}</a></td>
     <td>{{ features["status"] }}</td>
     <td>{{ features["mod_time"] }}</td>
+    <!--<td><a href="">Go to location</a></td>-->
     </tr>
 </div>
 {% endfor %}
