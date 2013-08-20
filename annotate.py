@@ -5,7 +5,7 @@ A little helper for manual annotion confirmation/rejection
 
 Test e.g. with
 
-http://127.0.0.1:5000/show/mytest
+http://127.0.0.1:5000/annotate/a_test_gene
 
 Copyright (c) 2013, Konrad Foerstner <konrad@foerstner.org>
 
@@ -95,4 +95,3 @@ if __name__ == "__main__":
     Bootstrap(app)
     app.debug = True
     app.run()
-    
