@@ -81,7 +81,13 @@ def reject(entity_id):
 
 @app.route("/listall")
 def list_all():
-    return render_template("list_all.html", entities = _entities())
+    #entities_and_mod_time = sorted([(features["mod_time"], entidy_id) for entidy_id, features in _entities().items()])
+    mod_time_sorted_entity_ids = [entidy_id for mod_time, entidy_id in sorted(
+            [(features["mod_time"], entidy_id) 
+             for entidy_id, features in _entities().items()], reverse=True)]
+    return render_template(
+        "list_all.html", entities=_entities(), 
+        mod_time_sorted_entity_ids=mod_time_sorted_entity_ids)
 
 @app.route("/add_offset/<entity_id>/<offset>")
 def add_offset(entity_id, offset):

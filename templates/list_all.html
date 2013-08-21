@@ -20,15 +20,16 @@ List all
       <th>Modification date</th>
       <!--<th>Link to location</th>-->
     </tr>
-  {% for entity_id, features in entities.items() %}
+    {% for entity_id in mod_time_sorted_entity_ids %}
     <tr>
     <td><a href='{{ url_for("annotate" , entity_id = entity_id) }}'>{{ entity_id }}</a></td>
-    <td>{{ features["status"] }}</td>
-    <td>{{ features["offset"] }}</td>
-    <td>{{ features["mod_time"] }}</td>
+    <td>{{ entities[entity_id]["status"] }}</td>
+    <td>{{ entities[entity_id]["offset"] }}</td>
+    <td>{{ entities[entity_id]["mod_time"] }}</td>
     <!--<td><a href="">Go to location</a></td>-->
     </tr>
+    {% endfor %}
 </div>
-{% endfor %}
+
 {% endblock %}
 
