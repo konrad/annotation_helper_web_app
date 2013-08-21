@@ -36,6 +36,9 @@ from flask.ext.bootstrap import Bootstrap
 import json
 import datetime
 
+# Make the test app also accessible from other machines
+externally_accessible = True
+
 app = Flask(__name__)
 data_file = "list_annotation.json"
 
@@ -120,4 +123,7 @@ def _now_str():
 if __name__ == "__main__":
     Bootstrap(app)
     app.debug = True
-    app.run()
+    host = "127.0.0.1"
+    if externally_accessible is True:
+        host = "0.0.0.0"
+    app.run(host=host, port=5000)
