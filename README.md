@@ -24,7 +24,7 @@ important that each entry has an **unique** "ID" and "Name" attribute.
 
 ### Running the app ###
 
-To start the app just call it:
+To start the app run
 
     $ python annotate.py
      * Running on http://0.0.0.0:5000/
