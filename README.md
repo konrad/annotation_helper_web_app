@@ -58,7 +58,7 @@ respectively.
 
 To make use of the web app we need the IGB to call the URL above with
 the specific feature IDs. To do so start the IGB, click the "Tool"
-button in the menu and select "Configure Web Links". Add the bottom of
+button in the menu and select "Configure Web Links". At the bottom of
 the new menu click "Create New". Select the new entry and fill the
 following values into the fields:
 
@@ -70,7 +70,7 @@ following values into the fields:
 If you load your GFF file into the IGB and click with the right mouse
 on a feature the pop-up menu should contain an option named "Reject"
 (or whatever you wrote in the "Name" field). Clicking this button
-should tell IGB to open the link for this specific feature an web
+should tell IGB to open the link for this specific feature in a web
 browser. This set-up could be used for a workflow in which you assume
 that any feature that you do not reject is accepted. If you want to
 use a different workflow you can use a different URL pattern
