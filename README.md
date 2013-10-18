@@ -1,13 +1,13 @@
 ## Purpose ##
 
 This little web app can assist in the manual confirmation/rejection of
-features when screening with the [Integrated Genome Browser
-(IGB)](http://bioviz.org/) (tested with version 7.0.1). It was
-developed to help during the visual inspection of transcription start
-sites (TSS) predicted computationally using dRNA-Seq data but can be
-used for any other annotation set. Currently it is just a quick hack
-which hijacks IGBs web links feature. The data persistency relies only
-on a plain text file in JSON format.
+features when screening annotations with the [Integrated Genome
+Browser (IGB)](http://bioviz.org/). It was developed to help
+performing a visual inspection of transcription start sites (TSS)
+predicted computationally using dRNA-Seq data but can be used for any
+other annotation set. Currently, it is just a quick hack which hijacks
+IGBs web links feature (tested with IGB version 7.0.1). The data
+persistency relies only on a plain text file in JSON format.
 
 ## Requirements ##
 
@@ -30,21 +30,22 @@ To start the app just call it:
      * Running on http://0.0.0.0:5000/
      * Restarting with reloader
 
-If you run it on your local machine you can access the web site at
-http://127.0.0.1:5000/listall. If you run it on a different machine
-you have to replace 127.0.0.1 by the IP address of that machine. The
-page presents a list of all features and should be empty when you run
-this for the first time. The app does requires any annotation list but
-will generate new entries if a certain URL is accessed. E.g. if you go
-to the address
+If you run it on your local machine (i.e. the machine that you use for
+IGB) you can access the web site at http://127.0.0.1:5000/listall. If
+you run it on a different machine you have to replace 127.0.0.1 by the
+IP address of that machine. The page presents a list of all features
+and should be empty when you run this for the first time. The app does
+not require any annotation list but will generate new entries if a
+certain URL is accessed. E.g. if you go to the address
 
 http://127.0.0.1:5000/annotate/my_little_test
 
-The entry for the annotation entry "my_little_test" will be created
-and can by modified. On the presented page you can confirm or reject
-the entry. You can also set an off-set of -3 to +3 (e.g. if a TSS is
+an feature entry of "my_little_test" will be created and can by
+modified. On the presented page you can confirm or reject the
+entry. You can also set an off-set of -3 to +3 (e.g. if a TSS is
 predicted some nucleotides up- or downstream of its actual
-position). You can also direct confirm or recect entris by calling the URL
+position). You can also directly confirm or recect entris by calling
+the URL
 
 http://127.0.0.1:5000/confirm/my_little_test
 
