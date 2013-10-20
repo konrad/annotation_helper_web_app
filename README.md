@@ -69,8 +69,9 @@ following values into the fields:
 * Regular Expression Matches: Annotation ID
 
 If you load your GFF file into the IGB and click with the right mouse
-on a feature the pop-up menu should contain an option named "Reject"
-(or whatever you wrote in the "Name" field). Clicking this button
+on a feature the pop-up menu should contain an option named "Get More
+Information" with and submenue showing "Google" and "Reject" (or
+whatever you wrote in the "Name" field). Clicking the "Reject" button
 should tell IGB to open the link for this specific feature in a web
 browser. This set-up could be used for a workflow in which you assume
 that any feature that you do not reject is accepted. If you want to
