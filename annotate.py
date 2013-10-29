@@ -65,7 +65,6 @@ def reject(entity_id):
 
 @app.route("/listall")
 def list_all():
-    #entities_and_mod_time = sorted([(features["mod_time"], entidy_id) for entidy_id, features in _entities().items()])
     mod_time_sorted_entity_ids = [entidy_id for mod_time, entidy_id in sorted(
             [(features["mod_time"], entidy_id) 
              for entidy_id, features in _entities().items()], reverse=True)]
