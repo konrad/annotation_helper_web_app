@@ -49,12 +49,17 @@ def annotate(entity_id):
         offset_plus_1_url=_offset_url(entity_id, 1),
         offset_plus_2_url=_offset_url(entity_id, 2),
         offset_plus_3_url=_offset_url(entity_id, 3),
+        fuzzynes_min_5_url=_fuzziness_url(entity_id, -5),
+        fuzzynes_min_4_url=_fuzziness_url(entity_id, -4),
+        fuzzynes_min_3_url=_fuzziness_url(entity_id, -3),
+        fuzzynes_min_2_url=_fuzziness_url(entity_id, -2),
+        fuzzynes_min_1_url=_fuzziness_url(entity_id, -1),
         fuzzynes_0_url=_fuzziness_url(entity_id, 0),
-        fuzzynes_1_url=_fuzziness_url(entity_id, 1),
-        fuzzynes_2_url=_fuzziness_url(entity_id, 2),
-        fuzzynes_3_url=_fuzziness_url(entity_id, 3),
-        fuzzynes_4_url=_fuzziness_url(entity_id, 4),
-        fuzzynes_5_url=_fuzziness_url(entity_id, 5),
+        fuzzynes_plus_1_url=_fuzziness_url(entity_id, 1),
+        fuzzynes_plus_2_url=_fuzziness_url(entity_id, 2),
+        fuzzynes_plus_3_url=_fuzziness_url(entity_id, 3),
+        fuzzynes_plus_4_url=_fuzziness_url(entity_id, 4),
+        fuzzynes_plus_5_url=_fuzziness_url(entity_id, 5),
         list_all_url=url_for("list_all"))
 
 def _offset_url(entity_id, offset):
@@ -108,7 +113,6 @@ def _entities():
 
 def _save_annotation(entity_id, status=None, offset=None, fuzziness=None):
     entities = _entities()
-    print(fuzziness, offset)
     if entity_id in entities:
         if status is None:
             status = entities[entity_id].get("status", "Undefined")
