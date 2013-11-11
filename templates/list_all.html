@@ -17,6 +17,7 @@ List all
       <th>ID</th>
       <th>Status</th>
       <th>Offset</th>
+      <th>Fuzziness</th>
       <th>Modification date</th>
       <!--<th>Link to location</th>-->
     </tr>
@@ -25,6 +26,7 @@ List all
     <td><a href='{{ url_for("annotate" , entity_id = entity_id) }}'>{{ entity_id }}</a></td>
     <td>{{ entities[entity_id]["status"] }}</td>
     <td>{{ entities[entity_id]["offset"] }}</td>
+    <td>{{ entities[entity_id]["fuzziness"] }}</td>
     <td>{{ entities[entity_id]["mod_time"] }}</td>
     <!--<td><a href="">Go to location</a></td>-->
     </tr>
