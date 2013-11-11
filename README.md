@@ -43,8 +43,9 @@ http://127.0.0.1:5000/annotate/my_little_test
 an feature entry of "my_little_test" will be created and can by
 modified. On the presented page you can confirm or reject the
 entry. You can also set an off-set of -3 to +3 (e.g. if a TSS is
-predicted some nucleotides up- or downstream of its actual
-position). You can also directly confirm or recect entris by calling
+predicted some nucleotides up- or downstream of its actual position)
+and fuzziness (if the TSS is not discretely located at a single
+location). You can also directly confirm or reject entries by calling
 the URL
 
 http://127.0.0.1:5000/confirm/my_little_test
