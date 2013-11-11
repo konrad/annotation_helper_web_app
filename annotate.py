@@ -63,7 +63,7 @@ def annotate(entity_id):
         list_all_url=url_for("list_all"))
 
 def _offset_url(entity_id, offset):
-    return url_for("add_offset", entity_id=entity_id, offset=offset)
+    return url_for("set_offset", entity_id=entity_id, offset=offset)
 
 def _fuzziness_url(entity_id, fuzziness):
     return url_for("set_fuzziness", entity_id=entity_id, fuzziness=fuzziness)
@@ -87,8 +87,8 @@ def list_all():
         "list_all.html", entities=_entities(), 
         mod_time_sorted_entity_ids=mod_time_sorted_entity_ids)
 
-@app.route("/add_offset/<entity_id>/<offset>")
-def add_offset(entity_id, offset):
+@app.route("/set_offset/<entity_id>/<offset>")
+def set_offset(entity_id, offset):
     _save_annotation(entity_id, offset=int(offset))
     return redirect(url_for("annotate", entity_id = entity_id))
 
